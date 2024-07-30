@@ -90,3 +90,30 @@ LinkedList.prototype.deleteWithAGiveKey = function (key) {
 
   console.log("No Node found with key " + key);
 };
+
+// Search key in the linkedlist
+LinkedList.prototype.search = function (key) {
+  let current = this.head;
+  while (current) {
+    if (current.data === key) {
+      return true;
+    }
+    current = current.next;
+  }
+  return false;
+};
+
+// Traverse the linkedlist
+LinkedList.prototype.printList = function () {
+  let current = this.head;
+  let listValues = [];
+  while (current) {
+    listValues.push(current.data);
+    current = current.next;
+  }
+  if (listValues.length > 0) {
+    console.log(listValues.join(" -> "));
+  } else {
+    console.log("LinkedList is Empty");
+  }
+};
