@@ -30,3 +30,13 @@ LinkedList.prototype.insertAtEnd = function (data) {
   }
   last.next = newNode;
 };
+
+// Insert at give node
+LinkedList.prototype.insertAfter = function (prevNode, data) {
+  if (!prevNode) {
+    console.log("PrevNode cannot be Null");
+    return;
+  }
+  const newNode = new Node(data, prevNode.next);
+  prevNode.next = newNode;
+};
