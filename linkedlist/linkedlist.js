@@ -117,3 +117,17 @@ LinkedList.prototype.printList = function () {
     console.log("LinkedList is Empty");
   }
 };
+
+LinkedList.prototype.reverseLinkedList = function () {
+  let current = this.head;
+  let next = null;
+  let prev = null;
+
+  while (current) {
+    next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
+  this.head = prev;
+};
