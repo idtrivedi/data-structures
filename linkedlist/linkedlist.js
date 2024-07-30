@@ -65,3 +65,28 @@ LinkedList.prototype.deleteLastNode = function () {
   }
   secondLast.next = null;
 };
+
+// Delete a node with a given key
+LinkedList.prototype.deleteWithAGiveKey = function (key) {
+  // Head doesn't exist, nothing to delete
+  if (!this.head) {
+    return;
+  }
+
+  // Data found at Head
+  if (this.head.data == key) {
+    this.head = this.head.next;
+    return;
+  }
+
+  let current = this.head;
+  while (current.next != null) {
+    if (current.next.data === key) {
+      current.next = current.next.next;
+      return;
+    }
+    current = current.next;
+  }
+
+  console.log("No Node found with key " + key);
+};
