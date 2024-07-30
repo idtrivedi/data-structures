@@ -40,3 +40,28 @@ LinkedList.prototype.insertAfter = function (prevNode, data) {
   const newNode = new Node(data, prevNode.next);
   prevNode.next = newNode;
 };
+
+// Delete First node or Delete Head
+LinkedList.prototype.deleteFirstNode = function () {
+  if (!this.head) {
+    console.log("Head doesn't exist");
+    return;
+  }
+  this.head = head.next;
+};
+
+// Delete Last Node of the linkedlist
+LinkedList.prototype.deleteLastNode = function () {
+  if (!this.head) {
+    return; // Head doesn't exist. Nothing to delete
+  }
+  if (!this.head.next) {
+    this.head = null; //There's only one node
+    return;
+  }
+  let secondLast = this.head;
+  while (secondLast.next.next) {
+    secondLast = secondLast.next;
+  }
+  secondLast.next = null;
+};
