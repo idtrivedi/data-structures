@@ -37,7 +37,7 @@ class Stack {
 
   printStack() {
     let str = "";
-    for (let i = 0; i < this.stack.length - 1; i++) {
+    for (let i = 0; i < this.stack.length; i++) {
       str += this.stack[i] + "\n";
     }
     return str;
