@@ -35,4 +35,39 @@ class BinarySearchTree {
       }
     }
   }
+
+  delete(key) {
+    this.root = deleteNode(this.root, key);
+  }
+
+  deleteNode(node, key) {
+    if (node == null) {
+      return null;
+    }
+    if (key < node.key) {
+      node.left = this.deleteNode(node.left, key);
+    } else if (key > node.key) {
+      node.right = this.deleteNode(node.right, key);
+    } else {
+      if (node.left === null && node.right === null) {
+        return null;
+      } else if (node.left === null) {
+        return node.right;
+      } else if (node.right === null) {
+        return node.left;
+      } else {
+        let temp = this.findMinNode(node.right);
+        node.key = tempNode.key;
+        node.right = this.deleteNode(node.right, tempNode.key);
+      }
+    }
+    return node;
+  }
+
+  findMinNode(node) {
+    while (node.left !== null) {
+      node -= node.left;
+    }
+    return node;
+  }
 }
