@@ -70,4 +70,43 @@ class BinarySearchTree {
     }
     return node;
   }
+
+  inorderTraversal() {
+    const result = [];
+    this.inorder(this.root, result);
+    return result;
+  }
+  inorder(node, result) {
+    if (node !== null) {
+      this.inorder(node.left, result);
+      result.push(node.key);
+      this.inorder(node.right, result);
+    }
+  }
+
+  preOrderTraversal() {
+    const result = [];
+    this.preOrder(this.root, result);
+    return result;
+  }
+  preOrder(node, result) {
+    if (node !== null) {
+      result.push(node.key);
+      this.preOrder(node.left, result);
+      this.preOrder(node.right, result);
+    }
+  }
+
+  postOrderTraversal() {
+    const result = [];
+    this.postOrder(this.root, result);
+    return result;
+  }
+  postOrder(node, result) {
+    if (node !== null) {
+      result.push(node.key);
+      this.postOrder(node.left, result);
+      this.postOrder(node.right, result);
+    }
+  }
 }
