@@ -71,16 +71,16 @@ class BinarySearchTree {
     return node;
   }
 
-  inorderTraversal() {
+  inOrderTraversal() {
     const result = [];
-    this.inorder(this.root, result);
+    this.inOrder(this.root, result);
     return result;
   }
-  inorder(node, result) {
+  inOrder(node, result) {
     if (node !== null) {
-      this.inorder(node.left, result);
+      this.inOrder(node.left, result);
       result.push(node.key);
-      this.inorder(node.right, result);
+      this.inOrder(node.right, result);
     }
   }
 
@@ -110,3 +110,20 @@ class BinarySearchTree {
     }
   }
 }
+
+var BST = new BinarySearchTree();
+
+BST.insert(15);
+BST.insert(25);
+BST.insert(10);
+BST.insert(7);
+BST.insert(22);
+BST.insert(17);
+BST.insert(13);
+BST.insert(5);
+BST.insert(9);
+BST.insert(27);
+
+console.log(BST.inOrderTraversal());
+console.log(BST.preOrderTraversal());
+console.log(BST.postOrderTraversal());
