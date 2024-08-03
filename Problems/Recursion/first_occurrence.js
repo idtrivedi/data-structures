@@ -7,3 +7,13 @@ function firstOccurrence(arr, findMe, currIndex) {
   }
   return -1;
 }
+
+function recursiveFirstOcc(arr, findMe, currIndex) {
+  if (arr.length === currIndex) {
+    return -1;
+  }
+  if (arr[currIndex] == findMe) {
+    return currIndex;
+  }
+  return recursiveFirstOcc(arr, findMe, currIndex + 1);
+}
