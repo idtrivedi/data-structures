@@ -12,3 +12,12 @@ function fibonacci(n) {
 
 console.log(fibonacci(5));
 
+function recursiveFibonacci(value) {
+  if (value <= 1) {
+    return value;
+  }
+
+  return recursiveFibonacci(value - 1) + recursiveFibonacci(value - 2);
+}
+
+console.log(recursiveFibonacci(5));
