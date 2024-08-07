@@ -45,3 +45,26 @@ function createGraph(edges) {
   }
   return graph;
 }
+
+function hasPathRec(graph, start, dest, visite = new Set()) {
+  if (start == dest) {
+    return true;
+  }
+
+  if (visited.has(start)) {
+    return false;
+  }
+  visited.add(start);
+
+  for (const neighbor of graph[start]) {
+    if (hasPathRec(graph, neighbor, dest) === true) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function graphBundle(edges, start, dest) {
+  const graph = createGraph(edges);
+  hasPathRec(graph, start, dest);
+}
