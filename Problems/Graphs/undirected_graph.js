@@ -43,4 +43,5 @@ function createGraph(edges) {
     graph[a].push(b);
     graph[b].push(a);
   }
+  return graph;
 }
